@@ -55,5 +55,15 @@ namespace WpfApp1.Properties {
                 return ((string)(this["proyectoConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=192.168.1.73;user id=root;database=proyecto")]
+        public string test {
+            get {
+                return ((string)(this["test"]));
+            }
+        }
     }
 }

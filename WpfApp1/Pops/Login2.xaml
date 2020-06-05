@@ -10,7 +10,7 @@
         <TextBox x:Name="txtNom" HorizontalAlignment="Left" Height="30" Margin="10,22,0,0" TextWrapping="Wrap" Text="Nombre" VerticalAlignment="Top" Width="200" GotMouseCapture="BorrartxtNom"/>
         <TextBox x:Name="txtAp" HorizontalAlignment="Left" Height="30" Margin="10,72,0,0" TextWrapping="Wrap" Text="Apellidos" VerticalAlignment="Top" Width="200" GotMouseCapture="BorrartxtAp"/>
         <TextBox x:Name="txtUser" HorizontalAlignment="Left" Height="30" Margin="10,122,0,0" TextWrapping="Wrap" Text="Usuario" VerticalAlignment="Top" Width="200" GotMouseCapture="BorrartxtUser"/>
-        <TextBox x:Name="txtPwd" HorizontalAlignment="Left" Height="30" Margin="10,171,0,0" TextWrapping="Wrap" Text="Contraseña" VerticalAlignment="Top" Width="200" GotMouseCapture="BorrartxtPwd"/>
+        <PasswordBox x:Name="txtPwd" HorizontalAlignment="Left" Height="30" Margin="10,171,0,0" VerticalAlignment="Top" Width="200" GotMouseCapture="BorrartxtPwd" Password="Contraseña"/>
         <Button x:Name="btCrear" Content="Crear" HorizontalAlignment="Left" Margin="55,213,0,0" VerticalAlignment="Top" Width="75" Click="BtCrear_Click"/>
         <Button x:Name="btCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="135,213,0,0" VerticalAlignment="Top" Width="75" Click="BtCancelar_Click"/>
 

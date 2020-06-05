@@ -5,59 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="507.857" Width="812">
+        Title="MainWindow" Height="514.857" Width="900">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="477" VerticalAlignment="Top" Width="790">
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="477" VerticalAlignment="Top" Width="892">
             <TabItem Header="Lista" Margin="-2,-2,-22,0">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dg_usuario" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="449" VerticalAlignment="Top" Width="784"/>
+                    <DataGrid x:Name="dg" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="449" VerticalAlignment="Top" Width="886" SelectionChanged="dataGrid1_SelectionChanged"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Dia" Margin="21,0,-51,0">
+            <TabItem Header="Dia" Margin="21,0,-51,0" >
                 <Grid Background="#FFE5E5E5" Margin="0,0,-2,-3">
                     <Label Content="Desayuno" HorizontalAlignment="Left" Margin="30,48,0,0" VerticalAlignment="Top"/>
                     <Label Content="Comida" HorizontalAlignment="Left" Margin="30,109,0,0" VerticalAlignment="Top"/>
                     <Label Content="Merienda" HorizontalAlignment="Left" Margin="30,169,0,0" VerticalAlignment="Top"/>
                     <Label Content="Cena" HorizontalAlignment="Left" Margin="30,229,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Cantidad" HorizontalAlignment="Left" Margin="216,48,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Cantidad (gr)" HorizontalAlignment="Left" Margin="216,48,0,0" VerticalAlignment="Top"/>
                     <Label Content="Notas" HorizontalAlignment="Left" Margin="30,288,0,0" VerticalAlignment="Top"/>
-                    <ComboBox x:Name="cbDesayuno" HorizontalAlignment="Left" Margin="30,74,0,0" VerticalAlignment="Top" Width="120"/>
-                    <ComboBox x:Name="cbComida" HorizontalAlignment="Left" Margin="30,135,0,0" VerticalAlignment="Top" Width="120"/>
-                    <ComboBox x:Name="cbMerienda" HorizontalAlignment="Left" Margin="30,195,0,0" VerticalAlignment="Top" Width="120"/>
-                    <ComboBox x:Name="cbCena" HorizontalAlignment="Left" Margin="30,255,0,0" VerticalAlignment="Top" Width="120"/>
-                    <TextBox x:Name="txtNotas" HorizontalAlignment="Left" Height="113" Margin="30,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244"/>
-                    <TextBox x:Name="txtDesayuno" HorizontalAlignment="Left" Height="23" Margin="216,73,0,0" TextWrapping="Wrap" Text="gr" VerticalAlignment="Top" Width="58"/>
-                    <TextBox x:Name="txtComida" HorizontalAlignment="Left" Height="23" Margin="216,135,0,0" TextWrapping="Wrap" Text="gr" VerticalAlignment="Top" Width="58"/>
-                    <TextBox x:Name="txtMerienda" HorizontalAlignment="Left" Height="23" Margin="216,195,0,0" TextWrapping="Wrap" Text="gr" VerticalAlignment="Top" Width="58"/>
-                    <TextBox x:Name="txtCena" HorizontalAlignment="Left" Height="23" Margin="216,255,0,0" TextWrapping="Wrap" Text="gr" VerticalAlignment="Top" Width="58"/>
-                    <Button x:Name="btNewPlato" Content="Crear plato" HorizontalAlignment="Left" Margin="344,387,0,0" VerticalAlignment="Top" Width="111" Height="40" Click="BtNewPlato_Click"/>
-                    <Button x:Name="btGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="534,397,0,0" VerticalAlignment="Top" Width="85" Height="30"/>
-                    <Button x:Name="btBorrar" Content="Borrar" HorizontalAlignment="Left" Margin="644,397,0,0" VerticalAlignment="Top" Width="85" Height="30" Click="BtBorrar_Click"/>
-                    <Label Content="Calorias" HorizontalAlignment="Left" Margin="344,26,0,0" VerticalAlignment="Top" Height="26" Width="61"/>
-                    <Label Content="Grasas" HorizontalAlignment="Left" Margin="423,26,0,0" VerticalAlignment="Top" Height="26" Width="53"/>
-                    <Label Content="Hidratos" HorizontalAlignment="Left" Margin="495,26,0,0" VerticalAlignment="Top" Height="26" Width="65"/>
-                    <Label Content="Azucar" HorizontalAlignment="Left" Margin="580,26,0,0" VerticalAlignment="Top" Height="26" Width="55"/>
-                    <Label Content="Proteinas" HorizontalAlignment="Left" Margin="659,26,0,0" VerticalAlignment="Top" Height="26" Width="70"/>
-                    <TextBlock x:Name="txtCal1" HorizontalAlignment="Left" Margin="344,74,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="61" TextAlignment="Center"/>
-                    <TextBlock x:Name="txtGrasas1" HorizontalAlignment="Left" Margin="423,74,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="53" TextAlignment="Center"/>
-                    <TextBlock x:Name="txtHC1" HorizontalAlignment="Left" Margin="495,74,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="65" TextAlignment="Center"/>
-                    <TextBlock x:Name="txtAzucar1" HorizontalAlignment="Left" Margin="580,74,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="55" TextAlignment="Center"/>
-                    <TextBlock x:Name="txtProteina1" HorizontalAlignment="Left" Margin="659,74,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="70" TextAlignment="Center"/>
-                    <TextBlock x:Name="txtCal2" HorizontalAlignment="Left" Margin="344,136,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="61" TextAlignment="Center"/>
-                    <TextBlock x:Name="txtGrasas2" HorizontalAlignment="Left" Margin="423,136,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="53" TextAlignment="Center"/>
-                    <TextBlock x:Name="txtHC2" HorizontalAlignment="Left" Margin="495,136,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="65" TextAlignment="Center"/>
-                    <TextBlock x:Name="txtAzucar2" HorizontalAlignment="Left" Margin="580,136,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="55" TextAlignment="Center"/>
-                    <TextBlock x:Name="txtProteina2" HorizontalAlignment="Left" Margin="659,136,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="70" TextAlignment="Center"/>
-                    <TextBlock x:Name="txtCal3" HorizontalAlignment="Left" Margin="344,196,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="61" TextAlignment="Center"/>
-                    <TextBlock x:Name="txtGrasas3" HorizontalAlignment="Left" Margin="423,196,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="53" TextAlignment="Center"/>
-                    <TextBlock x:Name="txtHC3" HorizontalAlignment="Left" Margin="495,196,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="65" TextAlignment="Center"/>
-                    <TextBlock x:Name="txtAzucar3" HorizontalAlignment="Left" Margin="580,196,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="55" TextAlignment="Center"/>
-                    <TextBlock x:Name="txtProteina3" HorizontalAlignment="Left" Margin="659,196,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="70" TextAlignment="Center"/>
-                    <TextBlock x:Name="txtCal4" HorizontalAlignment="Left" Margin="344,255,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="61" TextAlignment="Center"/>
-                    <TextBlock x:Name="txtGrasas4" HorizontalAlignment="Left" Margin="423,255,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="53" TextAlignment="Center"/>
-                    <TextBlock x:Name="txtHC4" HorizontalAlignment="Left" Margin="495,255,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="65" TextAlignment="Center"/>
-                    <TextBlock x:Name="txtAzucar4" HorizontalAlignment="Left" Margin="580,255,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="55" TextAlignment="Center"/>
-                    <TextBlock x:Name="txtProteina4" HorizontalAlignment="Left" Margin="659,255,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="70" TextAlignment="Center"/>
+                    <ComboBox x:Name="cbDesayuno" HorizontalAlignment="Left" Margin="30,74,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="ActualizarDatos1"/>
+                    <ComboBox x:Name="cbComida" HorizontalAlignment="Left" Margin="30,135,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="ActualizarDatos2"/>
+                    <ComboBox x:Name="cbMerienda" HorizontalAlignment="Left" Margin="30,195,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="ActualizarDatos3"/>
+                    <ComboBox x:Name="cbCena" HorizontalAlignment="Left" Margin="30,255,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="ActualizarDatos4"/>
+                    <TextBox x:Name="txtNotas" HorizontalAlignment="Left" Height="113" Margin="30,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265"/>
+                    <TextBox x:Name="txtDesayuno" HorizontalAlignment="Left" Height="23" Margin="237,73,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="58" TextChanged="ActualizarArrays1"/>
+                    <TextBox x:Name="txtComida" HorizontalAlignment="Left" Height="23" Margin="237,135,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="58" TextChanged="ActualizarArrays2"/>
+                    <TextBox x:Name="txtMerienda" HorizontalAlignment="Left" Height="23" Margin="237,195,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="58" TextChanged="ActualizarArrays3"/>
+                    <TextBox x:Name="txtCena" HorizontalAlignment="Left" Height="23" Margin="237,255,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="58" TextChanged="ActualizarArrays4"/>
+                    <Button x:Name="btNewPlato" Content="Crear plato" HorizontalAlignment="Left" Margin="373,385,0,0" VerticalAlignment="Top" Width="119" Height="40" Click="BtNewPlato_Click"/>
+                    <Button x:Name="btGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="637,395,0,0" VerticalAlignment="Top" Width="91" Height="30" Click="GuardarDia"/>
+                    <Button x:Name="btBorrar" Content="Borrar" HorizontalAlignment="Left" Margin="755,395,0,0" VerticalAlignment="Top" Width="90" Height="30" Click="BtBorrar_Click"/>
+                    <Label Content="Calorias" HorizontalAlignment="Left" Margin="373,25,0,0" VerticalAlignment="Top" Height="26" Width="65"/>
+                    <Label Content="Grasas" HorizontalAlignment="Left" Margin="457,25,0,0" VerticalAlignment="Top" Height="26" Width="57"/>
+                    <Label Content="Hidratos" HorizontalAlignment="Left" Margin="534,25,0,0" VerticalAlignment="Top" Height="26" Width="70"/>
+                    <Label Content="Azucar" HorizontalAlignment="Left" Margin="625,25,0,0" VerticalAlignment="Top" Height="26" Width="59"/>
+                    <Label Content="Proteinas" HorizontalAlignment="Left" Margin="710,25,0,0" VerticalAlignment="Top" Height="26" Width="74"/>
+                    <TextBlock x:Name="txtCal1" HorizontalAlignment="Left" Margin="373,73,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="65" TextAlignment="Center"/>
+                    <TextBlock x:Name="txtGrasas1" HorizontalAlignment="Left" Margin="457,73,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="57" TextAlignment="Center"/>
+                    <TextBlock x:Name="txtHC1" HorizontalAlignment="Left" Margin="534,73,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="70" TextAlignment="Center"/>
+                    <TextBlock x:Name="txtAzucar1" HorizontalAlignment="Left" Margin="625,73,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="59" TextAlignment="Center"/>
+                    <TextBlock x:Name="txtProteina1" HorizontalAlignment="Left" Margin="710,73,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="74" TextAlignment="Center"/>
+                    <TextBlock x:Name="txtCal2" HorizontalAlignment="Left" Margin="373,135,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="65" TextAlignment="Center"/>
+                    <TextBlock x:Name="txtGrasas2" HorizontalAlignment="Left" Margin="457,135,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="57" TextAlignment="Center"/>
+                    <TextBlock x:Name="txtHC2" HorizontalAlignment="Left" Margin="534,135,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="70" TextAlignment="Center"/>
+                    <TextBlock x:Name="txtAzucar2" HorizontalAlignment="Left" Margin="625,135,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="59" TextAlignment="Center"/>
+                    <TextBlock x:Name="txtProteina2" HorizontalAlignment="Left" Margin="710,135,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="74" TextAlignment="Center"/>
+                    <TextBlock x:Name="txtCal3" HorizontalAlignment="Left" Margin="373,195,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="65" TextAlignment="Center"/>
+                    <TextBlock x:Name="txtGrasas3" HorizontalAlignment="Left" Margin="457,195,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="57" TextAlignment="Center"/>
+                    <TextBlock x:Name="txtHC3" HorizontalAlignment="Left" Margin="534,195,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="70" TextAlignment="Center"/>
+                    <TextBlock x:Name="txtAzucar3" HorizontalAlignment="Left" Margin="625,195,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="59" TextAlignment="Center"/>
+                    <TextBlock x:Name="txtProteina3" HorizontalAlignment="Left" Margin="710,195,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="74" TextAlignment="Center"/>
+                    <TextBlock x:Name="txtCal4" HorizontalAlignment="Left" Margin="373,254,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="65" TextAlignment="Center"/>
+                    <TextBlock x:Name="txtGrasas4" HorizontalAlignment="Left" Margin="457,254,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="57" TextAlignment="Center"/>
+                    <TextBlock x:Name="txtHC4" HorizontalAlignment="Left" Margin="534,254,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="70" TextAlignment="Center"/>
+                    <TextBlock x:Name="txtAzucar4" HorizontalAlignment="Left" Margin="625,254,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="59" TextAlignment="Center"/>
+                    <TextBlock x:Name="txtProteina4" HorizontalAlignment="Left" Margin="710,254,0,0" TextWrapping="Wrap" Text="00.0" VerticalAlignment="Top" Height="23" Width="74" TextAlignment="Center"/>
+                    <DatePicker x:Name="fechaDia" HorizontalAlignment="Left" Margin="30,19,0,0" VerticalAlignment="Top" SelectedDateFormat="Short"/>
+                    <Button x:Name="btRefresh" Content="Actualizar" HorizontalAlignment="Left" Margin="373,312,0,0" VerticalAlignment="Top" Width="80" Click="ActualizarCb"/>
                 </Grid>
             </TabItem>
         </TabControl>

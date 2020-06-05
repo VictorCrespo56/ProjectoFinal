@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Login1" Height="185.873" Width="348.74">
+        Title="Login1" Height="185.873" Width="348.74" Closing="IsClosing"  >
     <Grid>
-        <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" TextWrapping="Wrap" Text="Usuario" VerticalAlignment="Top" Width="304" GotMouseCapture="BorrartxtUser"/>
-        <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Height="30" Margin="10,59,0,0" TextWrapping="Wrap" Text="Contraseña" VerticalAlignment="Top" Width="304" GotMouseCapture="BorrartxtPwd"/>
+        <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" TextWrapping="Wrap" Text="Usuario" VerticalAlignment="Top" Width="304" GotMouseCapture="BorrartxtUser" GotKeyboardFocus="BorrartxtUser2"/>
+        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Height="30" Margin="10,59,0,0" VerticalAlignment="Top" Width="304" GotMouseCapture="BorrartxtPwd" GotKeyboardFocus="BorrartxtPwd2" Password="Contraseña"/>
         <Button x:Name="btEntrar" Content="Entrar" HorizontalAlignment="Left" Margin="159,107,0,0" VerticalAlignment="Top" Width="75" Click="BtEntrar_Click"/>
         <Button x:Name="btCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="239,107,0,0" VerticalAlignment="Top" Width="75" Click="BtCancelar_Click"/>
         <Button x:Name="btCrear" Content="Crear cuenta" HorizontalAlignment="Left" Margin="10,107,0,0" VerticalAlignment="Top" Width="75" Click="BtCrear_Click"/>

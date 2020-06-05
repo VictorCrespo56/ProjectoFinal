@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,8 @@ namespace WpfApp1
     /// </summary>
     public partial class Login1 : Window
     {
+        bool IsAppClosing = true;
+
         public Login1()
         {
             InitializeComponent();
@@ -35,22 +38,33 @@ namespace WpfApp1
 
         private void BtCancelar_Click(object sender, RoutedEventArgs e)
         {
-            //Environment.Exit(0);
-            Close();
+            Environment.Exit(0);
+        }
+
+        private void IsClosing(object sender, CancelEventArgs e)
+        {
+            if(IsAppClosing == true)
+            {
+                Environment.Exit(0);
+            }
         }
 
         private void BtEntrar_Click(object sender, RoutedEventArgs e)
         {
             string username = txtUsername.Text;
-            string password = txtPassword.Text;
+            string password = txtPassword.Password;
+
             //MessageBox.Show(username + ", " + password);
+
             Conexion sql = new Conexion();
             string query = "SELECT * FROM USUARIO WHERE USUARIO LIKE '" + username + "'";
-            if(sql.Comprobar(query, username) == true)
+            if(sql.Comprobar(query, username, "USUARIO", "USUARIO") == true)
             {
                 query = "SELECT * FROM USUARIO WHERE PASSWORD LIKE '" + password + "'";
-                if(sql.Comprobar(query, password) == true)
+                if(sql.Comprobar(query, password, "USUARIO", "PASSWORD") == true)
                 {
+                    IsAppClosing = false;
+                    Usuario.username = username;
                     Close();
                 }
                 else
@@ -67,9 +81,9 @@ namespace WpfApp1
 
         private void BorrartxtPwd(object sender, MouseEventArgs e)
         {
-            if (txtPassword.Text == "Contraseña")
+            if (txtPassword.Password == "Contraseña")
             {
-                txtPassword.Text = "";
+                txtPassword.Password = "";
             }
         }
 
@@ -80,5 +94,22 @@ namespace WpfApp1
                 txtUsername.Text = "";
             }
         }
+        
+        private void BorrartxtUser2(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            if (txtUsername.Text == "Usuario")
+            {
+                txtUsername.Text = "";
+            }
+        }
+
+        private void BorrartxtPwd2(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            if (txtPassword.Password == "Contraseña")
+            {
+                txtPassword.Password = "";
+            }
+        }
+
     }
 }

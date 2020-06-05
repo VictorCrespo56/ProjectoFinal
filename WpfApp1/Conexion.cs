@@ -40,22 +40,25 @@ namespace WpfApp1
             }
         }
 
-        public bool Comprobar(string query, string buscado)
+        public bool Comprobar(string query, string buscado, string tabla, string columna)
         {
             //MessageBox.Show(query);
             try
             {
-
-
                 //con.Open();
 
                 //MySqlCommand comm = new MySqlCommand(query, con);
                 //comm.ExecuteReader();
                 //MySqlDataAdapter dataAdp = new MySqlDataAdapter(comm);
-                DataTable dtUser = Rellenar(query, "USUARIO");
+
+                DataTable dtUser = Rellenar(query, tabla);
+
                 //dataAdp.Fill(dtUser);
-                string resultado = "" + Convert.ToString(dtUser.Rows[0]["USUARIO"]);
+
+                string resultado = "" + Convert.ToString(dtUser.Rows[0][columna]);
+
                 //MessageBox.Show(resultado + "- ");
+
                 if (resultado == buscado)
                 {
                     return true;
@@ -68,7 +71,7 @@ namespace WpfApp1
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                String error = "Error: " + ex;
                 return false;
             }
         }
@@ -84,13 +87,32 @@ namespace WpfApp1
 
                 con.Close();
                 return true;
-            }
+        }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return false;
             }
+        }
 
+        public MySqlDataReader CargarCb(string query)
+        {
+            string connectionString = WpfApp1.Properties.Settings.Default.proyectoConnectionString;
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(connectionString);
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand(query, connection);
+
+                return command.ExecuteReader();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex);
+                return null;
+            }
         }
     }
 

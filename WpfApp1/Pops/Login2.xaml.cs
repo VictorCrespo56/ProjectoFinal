@@ -34,21 +34,26 @@ namespace WpfApp1.Pops
             string nom = txtNom.Text;
             string ap = txtAp.Text;
             string username = txtUser.Text;
-            string password = txtPwd.Text;
-
-            string query = "INSERT INTO USUARIO (NOMBRE, APELLIDO, USUARIO, PASSWORD, ROL) VALUES ( '" + nom + "', '" + ap + "', '" + username + "', '" + password + "', 2);";
+            string password = txtPwd.Password;
             Conexion sql = new Conexion();
-            if (sql.ModificarBD(query) == true)
+
+            if(sql.Comprobar("SELECT * FROM USUARIO WHERE USUARIO LIKE '" + username + "'", username, "USUARIO", "USUARIO") == false)
             {
-                MessageBox.Show("Se ha creado con éxito su cuenta.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
-                Close();
+                string query = "INSERT INTO USUARIO (NOMBRE, APELLIDO, USUARIO, PASSWORD, ROL) VALUES ( '" + nom + "', '" + ap + "', '" + username + "', '" + password + "', 2);";
+                if (sql.ModificarBD(query) == true)
+                {
+                    MessageBox.Show("Se ha creado con éxito su cuenta.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido crear su cuenta.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
             else
             {
-                MessageBox.Show("No se ha podido crear su cuenta.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("El nombre de usuario ya existe.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-
         }
 
         private void BorrartxtNom(object sender, MouseEventArgs e)
@@ -77,9 +82,9 @@ namespace WpfApp1.Pops
 
         private void BorrartxtPwd(object sender, MouseEventArgs e)
         {
-            if (txtPwd.Text == "Contraseña")
+            if (txtPwd.Password == "Contraseña")
             {
-                txtPwd.Text = "";
+                txtPwd.Password = "";
             }
         }
     }
